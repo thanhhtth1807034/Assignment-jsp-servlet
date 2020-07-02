@@ -4,11 +4,12 @@
     <!-- <pattern>/api*</pattern>-->
     <!-- <pattern>/ajax*</pattern>-->
     <!-- </excludes>-->
+    <decorator name="admin" page="admin.jsp">
+        <pattern>/admin*</pattern>
+    </decorator>
     <decorator name="web" page="web.jsp">
         <pattern>/*</pattern>
     </decorator>
-    <!-- <decorator name="admin" page="admin-template.jsp">-->
-    <!-- <pattern>/admin*</pattern>-->
-    <!-- </decorator>-->
+
 
 </decorators>
