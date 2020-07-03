@@ -3,35 +3,35 @@ package com.assignment.model;
 import javax.persistence.*;
 
 @Entity
-//@Table(name = "fruit")
+@Table(name = "fruit")
 public class Fruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-//    @Column(name = "name")
+    @Column(name = "name")
     private String name;
 
-//    @Column(name = "description")
+    @Column(name = "description")
     private String description;
 
-//    @Column(name = "price")
+    @Column(name = "price")
     private double price;
 
-//    @Column(name = "unit")
+    @Column(name = "unit")
     private String unit;
 
-//    @Column(name = "origin")
+    @Column(name = "origin")
     private String origin;
 
-//    @Column(name = "thumbnail")
+    @Column(name = "thumbnail")
     private String thumbnail;
 
-//    @Column(name = "categoryId")
+    @Column(name = "categoryId")
     private Integer categoryId;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "categoryId", updatable = false, insertable = false)
-//    private Category category;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "categoryId", updatable = false, insertable = false)
+    private Category category;
 
     public Fruit(String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
         this.name = name;
@@ -43,15 +43,13 @@ public class Fruit {
         this.categoryId = categoryId;
     }
 
-//    public Category getCategory() {
-//        return category;
-//    }
+    public Category getCategory() {
+        return category;
+    }
 
-
-
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Fruit() {
     }
