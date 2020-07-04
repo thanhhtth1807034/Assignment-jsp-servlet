@@ -15,6 +15,7 @@ public class FruitDAO {
     //    FRUIT CRUD
 
     public void insertFruit(Fruit fruit){
+        entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(fruit);
         entityManager.getTransaction().commit();
@@ -28,6 +29,15 @@ public class FruitDAO {
         entityManager.getTransaction().commit();
         entityManager.close();
         return list;
+    }
+
+    public Fruit getFruitById(int id){
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Fruit fruit = entityManager.find(Fruit.class, id);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return fruit;
     }
 
     public void updateFruit(Fruit fruit) {
@@ -57,6 +67,7 @@ public class FruitDAO {
 //    CATEGORY CRUD
 
     public void insertCategory(Category category){
+        entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(category);
         entityManager.getTransaction().commit();

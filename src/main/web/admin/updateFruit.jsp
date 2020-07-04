@@ -1,38 +1,40 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form action="admin-add-fruit" method="post">
+<form action="admin-update-fruit" method="post">
+    <input type="hidden" name="id" value="${requestScope.fruitId}">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label >Name</label>
-            <input type="text" name="name" class="form-control" >
+            <input type="text" name="name" value="${requestScope.fruits.name}" class="form-control" >
         </div>
         <div class="form-group col-md-6">
             <label >Description</label>
-            <input type="text" name="description" class="form-control" >
+            <input type="text" name="description" value="${requestScope.fruits.description}" class="form-control" >
         </div>
     </div>
     <div class="form-group">
         <label >Price</label>
-        <input type="number" name="price" class="form-control" >
+        <input type="number" name="price" value="${requestScope.fruits.price}" class="form-control" >
     </div>
     <div class="form-group">
         <label >Unit</label>
-        <input type="text" name="unit" class="form-control" >
+        <input type="text" name="unit" value="${requestScope.fruits.unit}" class="form-control" >
     </div>
     <div class="form-row">
         <div class="form-group col-md-4">
             <label >Origin</label>
-            <input type="text" name="origin" class="form-control" >
+            <input type="text" name="origin" value="${requestScope.fruits.origin}" class="form-control" >
         </div>
 
         <div class="form-group col-md-4">
             <label >Thumbnail</label>
-            <input type="text" name="thumbnail" class="form-control" >
+            <input type="text" name="thumbnail" value="${requestScope.fruits.thumbnail}" class="form-control" >
         </div>
         <div class="form-group col-md-4">
             <label >CategoryId</label>
             <select name="categoryId" >
+
                 <c:forEach var="cate" items="${requestScope.listCate}">
-                    <option value="${cate.id}" selected>${cate.name}</option>
+                    <option value="${cate.id}" selected = "${requestScope.fruits.categoryId == cate.id ? "selected" : null}" >${cate.name}</option>
                 </c:forEach>
             </select>
         </div>

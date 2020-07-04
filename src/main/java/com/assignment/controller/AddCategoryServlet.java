@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "AddCategoryServlet",urlPatterns = "/admin/add-category")
+@WebServlet(name = "AddCategoryServlet",urlPatterns = "/admin-add-category")
 public class AddCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FruitDAO dao = new FruitDAO();
         String name = request.getParameter("name");
         Category category = new Category(name);
         dao.insertCategory(category);
-        response.sendRedirect("list-cate");
+        response.sendRedirect("admin-add-category");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("addcategory.jsp").forward(request,response);
+        request.getRequestDispatcher("admin/addcategory.jsp").forward(request,response);
     }
 }

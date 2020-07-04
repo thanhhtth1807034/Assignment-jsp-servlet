@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "ListFruitServlet", urlPatterns = "/admin-list-fruit")
-public class ListFruitServlet extends HttpServlet {
+@WebServlet(name = "DeleteFruitServlet", urlPatterns = "/admin-delete-fruit")
+public class DeleteFruitServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Fruit> listFruit = dao.getAllFruit();
-        request.setAttribute("fruits", listFruit);
-        request.getRequestDispatcher("admin/listfruit.jsp").forward(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        dao.deleteFruit(id);
+        response.sendRedirect("admin-list-fruit");
     }
 }
