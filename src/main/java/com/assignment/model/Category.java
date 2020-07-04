@@ -4,17 +4,17 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-//@Table(name = "category")
+@Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//    @Column(name = "name")
+    @Column(name = "name")
     private String name;
 
-//    @OneToMany(mappedBy = "category")
-//    private List<Fruit> fruits;
+    @OneToMany(mappedBy = "category")
+    private List<Fruit> fruits;
 
     public Category( String name) {
         this.name = name;

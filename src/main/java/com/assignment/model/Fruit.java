@@ -43,6 +43,21 @@ public class Fruit {
         this.categoryId = categoryId;
     }
 
+    public Fruit(int id,String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.unit = unit;
+        this.origin = origin;
+        this.thumbnail = thumbnail;
+        this.categoryId = categoryId;
+    }
+
+    public Fruit(int id) {
+        this.id = id;
+    }
+
     public Category getCategory() {
         return category;
     }
