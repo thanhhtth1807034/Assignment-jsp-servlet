@@ -20,6 +20,8 @@
 
     <!-- Custom styles for this template-->
     <link href="<c:url value='/assert/admin/css/sb-admin-2.min.css'/>" rel="stylesheet">
+    <link href="<c:url value='/assert/admin/vendor/datatables/dataTables.bootstrap4.css'/>" rel="stylesheet">
+
 
 </head>
 
@@ -71,6 +73,10 @@
 <!-- Page level custom scripts -->
 <script src="<c:url value='/assert/admin/js/demo/chart-area-demo.js'/>"></script>
 <script src='<c:url value="/assert/admin/js/demo/chart-pie-demo.js"/>'></script>
+
+<script src="<c:url value='/assert/admin/js/demo/datatables-demo.js'/>"></script>
+<script src="<c:url value='/assert/admin/vendor/datatables/dataTables.bootstrap4.js'/>"></script>
+<script src="<c:url value='/assert/admin/vendor/datatables/jquery.dataTables.js'/>"></script>
 
 </body>
 
