@@ -61,9 +61,6 @@
 <%--        </div>--%>
 <%--    </li>--%>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
     <!-- Heading -->
     <div class="sidebar-heading">
         Addons
@@ -110,9 +107,21 @@
                 <a class="collapse-item" href="${pageContext.request.contextPath}/admin-list-fruit">Fruit</a>
                 <a class="collapse-item" href="${pageContext.request.contextPath}/admin-list-category">Category</a>
                 <div class="collapse-divider"></div>
-<%--                <h6 class="collapse-header">Other Pages:</h6>--%>
-<%--                <a class="collapse-item" href="404.html">404 Page</a>--%>
-<%--                <a class="collapse-item" href="blank.html">Blank Page</a>--%>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForms"
+           aria-expanded="true" aria-controls="collapseForms">
+            <i class="fas fa-fw fa-pencil-square"></i>
+            <span>Form</span>
+        </a>
+        <div id="collapseForms" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="${pageContext.request.contextPath}/admin-add-fruit">Add Fruit</a>
+                <a class="collapse-item" href="${pageContext.request.contextPath}/admin-add-category">Add Category</a>
+                <div class="collapse-divider"></div>
             </div>
         </div>
     </li>

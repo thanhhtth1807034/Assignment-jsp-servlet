@@ -40,6 +40,7 @@ public class FruitDAO {
         return fruit;
     }
 
+
     public void updateFruit(Fruit fruit) {
         entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
@@ -81,6 +82,15 @@ public class FruitDAO {
         entityManager.getTransaction().commit();
         entityManager.close();
         return list;
+    }
+
+    public Category getCategoryById(int id){
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Category category = entityManager.find(Category.class, id);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return category;
     }
 
     public void updateCategory(Category category) {

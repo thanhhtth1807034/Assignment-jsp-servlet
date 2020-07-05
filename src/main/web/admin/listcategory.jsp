@@ -8,7 +8,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tables Category</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -32,15 +32,13 @@
                         <tr>
                             <td>${cate.id}</td>
                             <td>${cate.name}</td>
-                                <%--                <td>--%>
-                                <%--                    <a href="${pageContext.request.contextPath}/update?id=<c:out value='${cate.id}'/>">Edit</a>--%>
-                                <%--                    &nbsp;&nbsp;&nbsp;&nbsp;--%>
-                                <%--                    <a href="${pageContext.request.contextPath}/delete?id=<c:out value='${cate.id}'/>">Delete</a>--%>
-                                <%--                </td>--%>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/admin-update-category?id=<c:out value='${cate.id}'/>">Edit</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="${pageContext.request.contextPath}/admin-delete-category?id=<c:out value='${cate.id}'/>">Delete</a>
+                            </td>
                         </tr>
                     </c:forEach>
-
-
                     </tbody>
                 </table>
             </div>
