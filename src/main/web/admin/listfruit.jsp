@@ -48,12 +48,14 @@
                             <td>${fruit.price}</td>
                             <td>${fruit.unit}</td>
                             <td>${fruit.origin}</td>
-                            <td>${fruit.thumbnail}</td>
+                            <td><img src="${fruit.thumbnail}" alt="" width="120px"></td>
                             <td>${fruit.categoryId}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/admin-update-fruit?id=<c:out value='${fruit.id}'/>">Edit</a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="${pageContext.request.contextPath}/admin-delete-fruit?id=<c:out value='${fruit.id}'/>">Delete</a>
+                                <a href="${pageContext.request.contextPath}/admin-update-fruit?id=<c:out value='${fruit.id}'/>">
+                                    <i class="fas fa-edit"></i></a>
+                                </a>&nbsp;|&nbsp;
+                                <a href="${pageContext.request.contextPath}/admin-delete-fruit?id=<c:out value='${fruit.id}'/>">
+                                    <i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                     </c:forEach>
