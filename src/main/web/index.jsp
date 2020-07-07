@@ -2,7 +2,7 @@
 <%@include file="common/taglib.jsp" %>
 <html>
 <head>
-    <title>Trang chu</title>
+    <title>Home Page</title>
 </head>
 <body>
 <!-- Hero Section Begin -->
