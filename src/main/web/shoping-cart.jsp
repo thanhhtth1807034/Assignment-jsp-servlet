@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
@@ -63,6 +65,7 @@
 </section>
 <!-- Hero Section End -->
 
+
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="https://colorlib.com/preview/theme/ogani/img/breadcrumb.jpg">
     <div class="container">
@@ -98,72 +101,42 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="https://colorlib.com/preview/theme/ogani/img/cart/cart-1.jpg" alt="">
-                                <h5>Vegetable’s Package</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                $55.00
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                        <c:forEach var="cart" items="${requestScope.carts}">
+                            <%--                            <fmt:parseNumber var = "i" integerOnly = "true"--%>
+                            <%--                                             type = "number" value = "${cart.price}" />--%>
+                            <c:set var="total" value="${cart.price * cart.quantity}"/>
+
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <img width="20%" src="${cart.image}" alt="">
+                                    <h5>${cart.fruitName}</h5>
+                                </td>
+                                ${cart.fruitId}
+                                <td class="shoping__cart__price">
+                                    $${cart.price}
+                                </td>
+                                <td class="shoping__cart__quantity">
+                                    <div class="quantity">
+                                        <div class="pro-qty">
+                                            <input type="text" id="quantity" value="${cart.quantity}">
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                $110.00
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="https://colorlib.com/preview/theme/ogani/img/cart/cart-2.jpg" alt="">
-                                <h5>Fresh Garden Vegetable</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                $39.00
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                $39.99
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="https://colorlib.com/preview/theme/ogani/img/cart/cart-3.jpg" alt="">
-                                <h5>Organic Bananas</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                $69.00
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                $69.99
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
-                            </td>
-                        </tr>
+                                </td>
+                                <td class="shoping__cart__total">
+                                    $${total}
+                                </td>
+                                <input type="hidden" id="fruitid" value="${cart.fruitId}">
+
+                                <td class="shoping__cart__item__close">
+                                    <form action="/Add-Cart" method="post">
+                                        <input type="hidden" name="frurtdeleteid" value="${cart.fruitId}">
+                                        <button type="submit"><span class="icon_close"></span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
                         </tbody>
                     </table>
                 </div>
@@ -173,8 +146,8 @@
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
                     <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                    <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                        Upadate Cart</a>
+                    <button id="update" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                        Upadate Cart</button>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -192,8 +165,8 @@
                 <div class="shoping__checkout">
                     <h5>Cart Total</h5>
                     <ul>
-                        <li>Subtotal <span>$454.98</span></li>
-                        <li>Total <span>$454.98</span></li>
+                        <li>Subtotal <span>$${requestScope.tt}</span></li>
+                        <li>Total <span>$${requestScope.tt}</span></li>
                     </ul>
                     <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                 </div>

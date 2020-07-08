@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +15,10 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="<c:url value='/assert/admin/vendor/fontawesome-free/css/all.min.css'/>" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="<c:url value='/assert/admin/vendor/fontawesome-free/css/all.min.css'/>" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<c:url value='/assert/admin/css/sb-admin-2.min.css'/>" rel="stylesheet">
@@ -33,27 +35,26 @@
 
     <!-- Sidebar -->
     <%--header--%>
-    <%@include file="/common/admin/header.jsp"%>
+    <%@include file="/common/admin/header.jsp" %>
     <%--header--%>
 
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
-        <%@include file="/common/admin/nav.jsp"%>
+        <%@include file="/common/admin/nav.jsp" %>
 
         <div id="content">
-        <dec:body />
-    </div>
+            <dec:body/>
+        </div>
     </div>
 
     <%--footer--%>
 
     <%--footer--%>
-
 
 
 </div>
-<%@include file="/common/admin/footer.jsp"%>
+<%@include file="/common/admin/footer.jsp" %>
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
@@ -80,6 +81,7 @@
 <script src="<c:url value='/assert/admin/vendor/datatables/jquery.dataTables.js'/>"></script>
 
 <script src="<c:url value='/assert/admin/js/demo/jquery.dataTable.min.js'/>"></script>
+
 </body>
 
 </html>

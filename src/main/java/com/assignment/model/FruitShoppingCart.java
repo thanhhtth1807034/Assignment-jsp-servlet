@@ -45,17 +45,30 @@ public class FruitShoppingCart {
         }
         items.put(fruit.getId(), item);
     }
+    public void updateProduct(Fruit fruit, int quantity) {
+        if (items == null) {
+            items = new HashMap<Integer, CartItem>();
+        }
+        CartItem item = new CartItem(fruit, quantity);
+        if (items.containsKey(fruit.getId())) {
+            item.setQuantity(quantity);
+        }
+        items.put(fruit.getId(), item);
+    }
 
-    public double getTotalPrice() {
+    public String tt() {
         this.totalPrice = 0;
         for (CartItem item :
                 items.values()) {
             this.totalPrice += item.getPrice() * item.getQuantity();
         }
-        return this.totalPrice;
+        return String.valueOf(this.totalPrice);
     }
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+
+
 }
