@@ -2,7 +2,7 @@
 <%@include file="common/taglib.jsp" %>
 <html>
 <head>
-    <title>Trang chu</title>
+    <title>Home Page</title>
 </head>
 <body>
 <!-- Hero Section Begin -->
@@ -138,7 +138,7 @@
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart" style="padding-top: 12px"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet" style="padding-top: 12px"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart" style="padding-top: 12px"></i></a></li>
+                                <li><a href="/Add-Cart"><i class="fa fa-shopping-cart" style="padding-top: 12px"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">

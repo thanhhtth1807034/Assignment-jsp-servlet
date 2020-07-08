@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Fruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "name")
     private String name;
 
@@ -43,7 +43,7 @@ public class Fruit {
         this.categoryId = categoryId;
     }
 
-    public Fruit(int id,String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
+    public Fruit(Integer id,String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -54,7 +54,7 @@ public class Fruit {
         this.categoryId = categoryId;
     }
 
-    public Fruit(int id) {
+    public Fruit(Integer id) {
         this.id = id;
     }
 
@@ -69,11 +69,11 @@ public class Fruit {
     public Fruit() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
