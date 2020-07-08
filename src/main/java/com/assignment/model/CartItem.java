@@ -4,15 +4,22 @@ public class CartItem {
 
     private int fruitId;
     private String fruitName;
+    private String image;
     private  int quantity;
     public double price;
-    public CartItem(Fruit fruit) {
-        this.fruitId = fruit.getId();
-        this.fruitName = fruit.getName();
-        this.quantity = 1;
-        this.price = fruit.getPrice();
+
+
+    public String getImage() {
+        return image;
     }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
     public CartItem(Fruit fruit, int quantity) {
+        this.image=fruit.getThumbnail();
         this.fruitId = fruit.getId();
         this.fruitName = fruit.getName();
         this.quantity = 1;
@@ -21,12 +28,7 @@ public class CartItem {
     public CartItem() {
     }
 
-    public CartItem(int fruitId, String fruitName, int quantity, double price) {
-        this.fruitId = fruitId;
-        this.fruitName = fruitName;
-        this.quantity = quantity;
-        this.price = price;
-    }
+
 
     public int getFruitId() {
         return fruitId;

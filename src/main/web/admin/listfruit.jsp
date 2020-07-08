@@ -43,7 +43,7 @@
                             <td>${fruit.price}</td>
                             <td>${fruit.unit}</td>
                             <td>${fruit.origin}</td>
-                            <td>${fruit.thumbnail}</td>
+                            <td><img src="${fruit.thumbnail}" alt="" width="120px"></td>
                             <td><b>${fruit.category.name}</b></td>
                             <td>
                                 <a href="${pageContext.request.contextPath}/admin-update-fruit?id=<c:out value='${fruit.id}'/>"
