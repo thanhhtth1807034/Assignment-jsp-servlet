@@ -1,4 +1,5 @@
 <!-- Header Section Begin -->
+<%@include file="../taglib.jsp" %>
 <header class="header">
     <div class="header__top">
         <div class="container">
@@ -64,9 +65,25 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i>
+                            <c:if test="${requestScope.carts!=null}">
+                                <span>
+                                        ${requestScope.carts.size()}
+                                </span>
+                            </c:if>
+                            <c:if test="${requestScope.carts==null}">
+                                <span>0</span>
+                            </c:if>
+                            </a></li>
                     </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
+                    <div class="header__cart__price">item:
+                        <c:if test="${requestScope.tt!=null}">
+                            <span>$${requestScope.tt}</span>
+                        </c:if>
+                        <c:if test="${requestScope.tt==null}">
+                            <span>$0</span>
+                        </c:if>
+                    </div>
                 </div>
             </div>
         </div>
