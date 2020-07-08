@@ -19,7 +19,8 @@ public class DeleteFruitServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        dao.deleteFruit(id);
+        int staus = Integer.parseInt(request.getParameter("staus"));
+        dao.deleteFruit(id,staus);
         response.sendRedirect("admin-list-fruit");
     }
 }

@@ -100,8 +100,6 @@
                 },
                 unit: {
                     required: true,
-                    number: true,
-                    min: 1
                 },
                 origin: "required",
                 thumbnail: "required"
@@ -116,8 +114,6 @@
                 },
                 unit: {
                     required: "Please enter unit product",
-                    number:"The unit must be a number",
-                    min: "The unit must be greater than 0"
                 },
                 origin: "Please enter origin product",
                 thumbnail: "Please select the product image file"
