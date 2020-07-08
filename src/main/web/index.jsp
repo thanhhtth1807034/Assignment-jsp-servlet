@@ -129,7 +129,10 @@
             </div>
         </div>
         <div class="row featured__filter">
+
             <c:forEach var="fruits" items="${requestScope.listFruits}">
+                <a href="/shop-detail?id=${fruits.id}" >
+
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="featured__item">
 
@@ -141,12 +144,15 @@
                                 <li><a href="/Add-Cart?frurtid=${fruits.id}&&quantity=1"><i class="fa fa-shopping-cart" style="padding-top: 12px"></i></a></li>
                             </ul>
                         </div>
+
+
                         <div class="featured__item__text">
                             <h6><a href="#">${fruits.name}</a></h6>
                             <h5>${fruits.price} $</h5>
                         </div>
                     </div>
                 </div>
+                </a>
             </c:forEach>
 
         </div>

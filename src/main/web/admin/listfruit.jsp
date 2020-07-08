@@ -46,11 +46,13 @@
                             <td><img src="${fruit.thumbnail}" alt="" width="120px"></td>
                             <td><b>${fruit.category.name}</b></td>
                             <td>
+
                                 <a href="${pageContext.request.contextPath}/admin-update-fruit?id=<c:out value='${fruit.id}'/>"
                                    style="text-decoration: none">Edit</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href="${pageContext.request.contextPath}/admin-delete-fruit?id=<c:out value='${fruit.id}'/>"
                                    style="text-decoration: none">Delete</a>
+
                             </td>
                         </tr>
                     </c:forEach>

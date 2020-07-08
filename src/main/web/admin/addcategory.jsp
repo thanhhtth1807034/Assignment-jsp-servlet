@@ -1,4 +1,5 @@
 
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -9,7 +10,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Form Add Categories</h6>
         </div>
         <div class="card-body">
-            <form action="admin-add-category" method="post">
+            <form action="/admin/add-category" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>Category Name</label>

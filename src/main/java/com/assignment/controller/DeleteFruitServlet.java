@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteFruitServlet", urlPatterns = "/admin-delete-fruit")
+@WebServlet(name = "DeleteFruitServlet", urlPatterns = "/admin/delete-fruit")
 public class DeleteFruitServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +20,6 @@ public class DeleteFruitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         dao.deleteFruit(id);
-        response.sendRedirect("admin-list-fruit");
+        response.sendRedirect("admin/list-fruit");
     }
 }

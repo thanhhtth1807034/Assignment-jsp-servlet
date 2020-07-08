@@ -33,8 +33,9 @@
                             <td>${cate.id}</td>
                             <td>${cate.name}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/admin-update-category?id=<c:out value='${cate.id}'/>"><i class="fas fa-edit"></i></a> |
-                                <a href="${pageContext.request.contextPath}/admin-delete-category?id=<c:out value='${cate.id}'/>"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a href="${pageContext.request.contextPath}/admin/update-category?id=<c:out value='${cate.id}'/>">Edit</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="${pageContext.request.contextPath}/admin/delete-category?id=<c:out value='${cate.id}'/>">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>
