@@ -16,8 +16,8 @@ import java.util.List;
 @WebServlet(name = "AddFruitServlet",urlPatterns = "/admin/add-fruit")
 public class AddFruitServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
+    public final static Integer STATUS_CREATE=1;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         double price = Double.parseDouble(request.getParameter("price"));
@@ -25,8 +25,8 @@ public class AddFruitServlet extends HttpServlet {
         String origin = request.getParameter("origin");
         String thumbnail = request.getParameter("thumbnail");
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-
-        Fruit fruit = new Fruit(name, description, price, unit, origin, thumbnail, categoryId);
+        int status=1;
+        Fruit fruit = new Fruit(name, description, price, unit, origin, thumbnail, categoryId,status);
         dao.insertFruit(fruit);
         response.sendRedirect("admin/list-fruit");
     }
