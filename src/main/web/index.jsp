@@ -132,6 +132,7 @@
 
             <c:forEach var="fruits" items="${requestScope.listFruits}">
                 <a href="/shop-detail?id=${fruits.id}" >
+
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="featured__item">
 
