@@ -24,7 +24,6 @@
     <link href="<c:url value='/assert/admin/css/sb-admin-2.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/css/jquery.dataTables.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/vendor/datatables/dataTables.bootstrap4.css'/>" rel="stylesheet">
-
     <style>
         .error {
             color: #f30000 !important;
@@ -59,8 +58,6 @@
     <%--footer--%>
 
     <%--footer--%>
-
-
 </div>
 <%@include file="/common/admin/footer.jsp" %>
 <!-- End of Page Wrapper -->
