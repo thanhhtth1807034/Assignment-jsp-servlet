@@ -95,9 +95,11 @@
                     number: true,
                     min: 0
                 },
+
                 unit: {
                     required: true,
                 },
+
                 origin: "required",
                 thumbnail: "required"
             },
@@ -109,6 +111,7 @@
                     number: "The price must be a number",
                     min: "The price must be greater than 0"
                 },
+
                 unit: {
                     required: "Please enter unit product",
                 },

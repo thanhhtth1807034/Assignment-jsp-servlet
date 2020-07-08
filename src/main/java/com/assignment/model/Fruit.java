@@ -81,7 +81,7 @@ public class Fruit {
         this.category = category;
     }
 
-    public Fruit() {
+    public Fruit(String name, String description, double doublePrice, String unit, String origin, String thumbnail) {
     }
 
     public Date getCreatedAt() {
