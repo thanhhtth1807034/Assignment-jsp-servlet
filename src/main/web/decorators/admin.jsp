@@ -23,7 +23,6 @@
     <link href="<c:url value='/assert/admin/css/jquery.dataTables.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/vendor/datatables/dataTables.bootstrap4.css'/>" rel="stylesheet">
 
-
 </head>
 
 <body id="page-top">
@@ -49,8 +48,6 @@
     <%--footer--%>
 
     <%--footer--%>
-
-
 
 </div>
 <%@include file="/common/admin/footer.jsp"%>
