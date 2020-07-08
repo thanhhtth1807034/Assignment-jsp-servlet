@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="container">
     <h1 style="padding: 10px 0 35px 0;">Add Product</h1>
-    <form action="admin-add-fruit" method="post" class="col-md-8 " id="formAddProduct">
+    <form action="/admin/add-fruit" method="post" class="col-md-8 " id="formAddProduct">
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label>Name</label>
@@ -23,9 +24,9 @@
             <label>Category</label>
             <select name="categoryId" class="form form-control">
 
-                <option value="5" selected="">Imported Fruit</option>
-
-                <option value="6" selected="">Domestic Fruit</option>
+                <c:forEach var="cate" items="${requestScope.listCate}">
+                    <option value="${cate.id}" >${cate.name}</option>
+                </c:forEach>
 
             </select>
         </div>
@@ -42,7 +43,6 @@
                 <div class="custom-file">
                     <input type="text" class="custom-file-input col-md-6" name="thumbnail" >
                     <label id="upload_widget"  class="custom-file-label" for="upload_widget">Choose file</label>
-<%--                    <button type="button" class="btn btn-primary" id="upload_widget">Upload files</button>--%>
                     <img id="preview" width="180px" src=""/>
 
                 </div>

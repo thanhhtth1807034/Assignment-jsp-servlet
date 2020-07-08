@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "AddFruitServlet",urlPatterns = "/admin-add-fruit")
+@WebServlet(name = "AddFruitServlet",urlPatterns = "/admin/add-fruit")
 public class AddFruitServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
     public final static Integer STATUS_CREATE=1;
@@ -28,13 +28,13 @@ public class AddFruitServlet extends HttpServlet {
         int status=1;
         Fruit fruit = new Fruit(name, description, price, unit, origin, thumbnail, categoryId,status);
         dao.insertFruit(fruit);
-        response.sendRedirect("admin-list-fruit");
+        response.sendRedirect("admin/list-fruit");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> list = dao.getAllCategory();
         request.setAttribute("listCate", list);
-        request.getRequestDispatcher("admin/addfruit.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/addfruit.jsp").forward(request,response);
 
     }
 }

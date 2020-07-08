@@ -11,5 +11,9 @@
         <pattern>/*</pattern>
     </decorator>
 
+    <decorator name="account" page="account.jsp">
+        <pattern>/account*</pattern>
+    </decorator>
+
 
 </decorators>
