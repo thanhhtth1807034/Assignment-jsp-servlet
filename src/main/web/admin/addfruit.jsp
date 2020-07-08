@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="container">
     <h1 style="padding: 10px 0 35px 0;">Add Product</h1>
-    <form action="admin-add-fruit" method="post" class="col-md-8 " id="formAddProduct">
+    <form action="/admin/add-fruit" method="post" class="col-md-8 " id="formAddProduct">
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label>Name</label>
