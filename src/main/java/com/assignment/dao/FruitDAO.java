@@ -56,11 +56,11 @@ public class FruitDAO {
         entityManager.close();
     }
 
-    public void deleteFruit(int id) {
+    public void deleteFruit(int id ,int status) {
         entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         Fruit entityFruit = entityManager.find(Fruit.class, id);
-        entityManager.remove(entityFruit);
+        entityFruit.setStatus(status);
         entityManager.getTransaction().commit();
         entityManager.close();
     }

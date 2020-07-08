@@ -24,7 +24,6 @@
     <link href="<c:url value='/assert/admin/css/sb-admin-2.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/css/jquery.dataTables.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/vendor/datatables/dataTables.bootstrap4.css'/>" rel="stylesheet">
-
     <style>
         .error {
             color: #f30000 !important;
@@ -59,8 +58,6 @@
     <%--footer--%>
 
     <%--footer--%>
-
-
 </div>
 <%@include file="/common/admin/footer.jsp" %>
 <!-- End of Page Wrapper -->
@@ -98,7 +95,11 @@
                     number: true,
                     min: 0
                 },
-                unit: "required",
+
+                unit: {
+                    required: true,
+                },
+
                 origin: "required",
                 thumbnail: "required"
             },
@@ -110,7 +111,10 @@
                     number: "The price must be a number",
                     min: "The price must be greater than 0"
                 },
-                unit: "Please enter unit product",
+
+                unit: {
+                    required: "Please enter unit product",
+                },
                 origin: "Please enter origin product",
                 thumbnail: "Please select the product image file"
             }
