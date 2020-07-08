@@ -44,7 +44,7 @@
                     </div>
                     <div class="hero__search__phone">
                         <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
+                            <i style="margin-top: 34%" class="fa fa-phone"></i>
                         </div>
                         <div class="hero__search__phone__text">
                             <h5>+65 11.188.888</h5>
@@ -138,7 +138,7 @@
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart" style="padding-top: 12px"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet" style="padding-top: 12px"></i></a></li>
-                                <li><a href="/Add-Cart"><i class="fa fa-shopping-cart" style="padding-top: 12px"></i></a></li>
+                                <li><a href="/Add-Cart?frurtid=${fruits.id}&&quantity=1"><i class="fa fa-shopping-cart" style="padding-top: 12px"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">

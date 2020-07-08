@@ -14,22 +14,12 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "CartServlet",urlPatterns = "/Add-Cart")
-public class CartServlet extends HttpServlet {
+@WebServlet(name = "UpdateCartServlet",urlPatterns = "/update-cart")
+public class UpdateCartServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
     private static final String SHOPPING_CART_ATTRIBUTE = "SHOPPING_CART";
     private static final Logger LOGGER = Logger.getLogger(FruitShoppingCart.class.getSimpleName());
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int frurtid = Integer.parseInt(request.getParameter("frurtdeleteid"));
-        HttpSession session = request.getSession();
-        FruitShoppingCart cart = LoadShoppingCart(session);
-        cart.removeProduct(frurtid);
-        response.sendRedirect("shoping-cart");
-    }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         int frurtid = Integer.parseInt(request.getParameter("frurtid"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         if (quantity <= 0) {
@@ -38,35 +28,14 @@ public class CartServlet extends HttpServlet {
         Fruit fruit = dao.getFruitById(frurtid);
         if (fruit == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Product's' not found");
-
         }
         HttpSession session = request.getSession();
         FruitShoppingCart cart = LoadShoppingCart(session);
-        LOGGER.log(Level.SEVERE, "Cart null: " + false);
-        cart.addProduct(fruit, quantity);
-        SaveShoppingCart(cart, session);
-        response.sendRedirect("shoping-cart");
+        cart.updateProduct(fruit,quantity);
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int frurtid = Integer.parseInt(req.getParameter("frurtid"));
-        HttpSession session = req.getSession();
-        FruitShoppingCart cart = LoadShoppingCart(session);
-        cart.removeProduct(frurtid);
-        resp.sendRedirect("shoping-cart");
-
-    }
-
-    private void SaveShoppingCart(FruitShoppingCart shoppingCart, HttpSession session) {
-        session.setAttribute(SHOPPING_CART_ATTRIBUTE, shoppingCart);
-        if (session.getAttribute(SHOPPING_CART_ATTRIBUTE)==null){
-            LOGGER.log(Level.SEVERE, "ssss null: " + false);
-
-        }
-    }
-
     private FruitShoppingCart LoadShoppingCart(HttpSession session) {
         FruitShoppingCart cart = null;
         try {
@@ -79,5 +48,4 @@ public class CartServlet extends HttpServlet {
         }
         return cart;
     }
-
 }
