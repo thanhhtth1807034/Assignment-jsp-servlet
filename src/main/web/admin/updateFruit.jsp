@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form action="admin-update-fruit" method="post">
+<form action="/admin/update-fruit" method="post">
     <input type="hidden" name="id" value="${requestScope.fruitId}">
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -27,11 +27,17 @@
 
         <div class="form-group col-md-4">
             <label >Thumbnail</label>
-            <input type="text" name="thumbnail" value="${requestScope.fruits.thumbnail}" class="form-control" >
+<%--            <input type="text" name="thumbnail" value="${requestScope.fruits.thumbnail}" class="form-control" >--%>
+            <div class="custom-file">
+                <input type="text" value="${requestScope.fruits.thumbnail}" class="custom-file-input col-md-6" name="thumbnail" >
+                <label id="upload_widget"  class="custom-file-label" for="upload_widget">Choose file</label>
+                <img id="preview" width="180px" src="${requestScope.fruits.thumbnail}"/>
+
+            </div>
         </div>
         <div class="form-group col-md-4">
-            <label >CategoryId</label>
-            <select name="categoryId" >
+            <label >Category</label>
+            <select name="categoryId" class="form form-control">
 
                 <c:forEach var="cate" items="${requestScope.listCate}">
                     <option value="${cate.id}" selected = "${requestScope.fruits.categoryId == cate.id ? "selected" : null}" >${cate.name}</option>

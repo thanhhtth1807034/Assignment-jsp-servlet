@@ -1,4 +1,5 @@
 <!-- Header Section Begin -->
+<%@include file="../taglib.jsp" %>
 <header class="header">
     <div class="header__top">
         <div class="container">
@@ -6,7 +7,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                            <li><i class="fa fa-envelope"></i> hello@gmail.com</li>
                             <li>Free Shipping for all Order of $99</li>
                         </ul>
                     </div>
@@ -20,16 +21,15 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <div class="header__top__right__language">
-                            <img src="img/language.png" alt="">
+                            <img src="${pageContext.request.contextPath}/assert/web/img/language.png" alt="">
                             <div>English</div>
                             <span class="arrow_carrot-down"></span>
                             <ul>
-                                <li><a href="#">Spanis</a></li>
                                 <li><a href="#">English</a></li>
                             </ul>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i> Login</a>
+                            <a href="${pageContext.request.contextPath}/account/login"><i class="fa fa-user"></i> Login</a>
                         </div>
                     </div>
                 </div>
@@ -65,9 +65,25 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i>
+                            <c:if test="${requestScope.carts!=null}">
+                                <span>
+                                        ${requestScope.carts.size()}
+                                </span>
+                            </c:if>
+                            <c:if test="${requestScope.carts==null}">
+                                <span>0</span>
+                            </c:if>
+                            </a></li>
                     </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
+                    <div class="header__cart__price">item:
+                        <c:if test="${requestScope.tt!=null}">
+                            <span>$${requestScope.tt}</span>
+                        </c:if>
+                        <c:if test="${requestScope.tt==null}">
+                            <span>$0</span>
+                        </c:if>
+                    </div>
                 </div>
             </div>
         </div>

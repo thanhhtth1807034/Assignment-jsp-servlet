@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "UpdateFruitServlet", urlPatterns = "/admin-update-fruit")
+@WebServlet(name = "UpdateFruitServlet", urlPatterns = "/admin/update-fruit")
 public class UpdateFruitServlet extends HttpServlet {
     FruitDAO dao =new FruitDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class UpdateFruitServlet extends HttpServlet {
 
         Fruit fruit = new Fruit(id,name,description,price,unit,origin,thumbnail,categoryId);
         dao.updateFruit(fruit);
-        response.sendRedirect("admin-list-fruit");
+        response.sendRedirect("admin/list-fruit");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +37,6 @@ public class UpdateFruitServlet extends HttpServlet {
         request.setAttribute("fruits", fruit);
         List<Category> list = dao.getAllCategory();
         request.setAttribute("listCate", list);
-        request.getRequestDispatcher("admin/updateFruit.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/updateFruit.jsp").forward(request, response);
     }
 }
