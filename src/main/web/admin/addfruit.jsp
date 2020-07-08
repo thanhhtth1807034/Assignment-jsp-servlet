@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form action="admin-add-fruit" method="post">
+<form action="/admin/add-fruit" method="post">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label >Name</label>

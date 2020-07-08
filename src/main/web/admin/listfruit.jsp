@@ -51,9 +51,9 @@
                             <td>${fruit.thumbnail}</td>
                             <td>${fruit.categoryId}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/admin-update-fruit?id=<c:out value='${fruit.id}'/>">Edit</a>
+                                <a href="${pageContext.request.contextPath}/admin/update-fruit?id=<c:out value='${fruit.id}'/>">Edit</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="${pageContext.request.contextPath}/admin-delete-fruit?id=<c:out value='${fruit.id}'/>">Delete</a>
+                                <a href="${pageContext.request.contextPath}/admin/delete-fruit?id=<c:out value='${fruit.id}'/>">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

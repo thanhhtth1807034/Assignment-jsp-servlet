@@ -1,4 +1,4 @@
-<form action="admin-add-category" method="post">
+<form action="/admin/add-category" method="post">
     <input type="hidden" name="id" value="${requestScope.categoryId}">
     <div class="form-row">
         <div class="form-group col-md-6">

@@ -6,7 +6,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                            <li><i class="fa fa-envelope"></i> hello@gmail.com</li>
                             <li>Free Shipping for all Order of $99</li>
                         </ul>
                     </div>
@@ -20,16 +20,15 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <div class="header__top__right__language">
-                            <img src="img/language.png" alt="">
+                            <img src="${pageContext.request.contextPath}/assert/web/img/language.png" alt="">
                             <div>English</div>
                             <span class="arrow_carrot-down"></span>
                             <ul>
-                                <li><a href="#">Spanis</a></li>
                                 <li><a href="#">English</a></li>
                             </ul>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i> Login</a>
+                            <a href="${pageContext.request.contextPath}/account/login"><i class="fa fa-user"></i> Login</a>
                         </div>
                     </div>
                 </div>

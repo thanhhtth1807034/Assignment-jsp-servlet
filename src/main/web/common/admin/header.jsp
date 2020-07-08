@@ -104,8 +104,8 @@
         </a>
         <div id="collapseTables" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="${pageContext.request.contextPath}/admin-list-fruit">Fruit</a>
-                <a class="collapse-item" href="${pageContext.request.contextPath}/admin-list-category">Category</a>
+                <a class="collapse-item" href="${pageContext.request.contextPath}/admin/list-fruit">Fruit</a>
+                <a class="collapse-item" href="${pageContext.request.contextPath}/admin/list-category">Category</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>
@@ -119,8 +119,8 @@
         </a>
         <div id="collapseForms" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="${pageContext.request.contextPath}/admin-add-fruit">Add Fruit</a>
-                <a class="collapse-item" href="${pageContext.request.contextPath}/admin-add-category">Add Category</a>
+                <a class="collapse-item" href="${pageContext.request.contextPath}/admin/add-fruit">Add Fruit</a>
+                <a class="collapse-item" href="${pageContext.request.contextPath}/admin/add-category">Add Category</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>

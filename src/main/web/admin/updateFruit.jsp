@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form action="admin-update-fruit" method="post">
+<form action="/admin/update-fruit" method="post">
     <input type="hidden" name="id" value="${requestScope.fruitId}">
     <div class="form-row">
         <div class="form-group col-md-6">

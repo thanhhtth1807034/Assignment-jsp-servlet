@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteCategoryServlet", urlPatterns = "/admin-delete-category")
+@WebServlet(name = "DeleteCategoryServlet", urlPatterns = "/admin/delete-category")
 public class DeleteCategoryServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,6 +19,6 @@ public class DeleteCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         dao.deleteCategory(id);
-        response.sendRedirect("admin-list-category");
+        response.sendRedirect("admin/list-category");
     }
 }
