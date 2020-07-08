@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListCategoryServlet",urlPatterns = "/admin-list-category")
+@WebServlet(name = "ListCategoryServlet",urlPatterns = "/admin/list-category")
 public class ListCategoryServlet extends HttpServlet {
     FruitDAO dao = new FruitDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +20,6 @@ public class ListCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> list = dao.getAllCategory();
         request.setAttribute("categories", list);
-        request.getRequestDispatcher("admin/listcategory.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/listcategory.jsp").forward(request,response);
     }
 }

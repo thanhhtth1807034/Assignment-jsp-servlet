@@ -44,6 +44,29 @@
 <script type="text/javascript" src="<c:url value="/assert/web/js/mixitup.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/assert/web/js/owl.carousel.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/assert/web/js/main.js"/>"></script>
+<script>
 
+    $("#update").click(function () {
+        var quantity = $("#quantity").val();
+        var fruitid = $("#fruitid").val();
+        $.ajax({
+            url: "/update-cart",
+            type: "POST",
+            dataType: "json",
+            data: {
+                'frurtid':fruitid,
+                'quantity':quantity
+            },
+            success: function (res) {
+                if (!res == false) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                window.location.reload();
+            }
+        });
+    })
+</script>
 </body>
 </html>
