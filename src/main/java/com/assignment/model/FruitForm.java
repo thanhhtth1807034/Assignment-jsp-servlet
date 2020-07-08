@@ -12,9 +12,7 @@ public class FruitForm {
     private String origin;
     private String thumbnail;
 
-    public Fruit getFruitInstance() {
-        return new Fruit(name,description, doublePrice, unit, origin, thumbnail);
-    }
+
     public FruitForm(String name, String description, String price, String unit, String origin, String thumbnail){
         this.name = name;
         this.description = description;

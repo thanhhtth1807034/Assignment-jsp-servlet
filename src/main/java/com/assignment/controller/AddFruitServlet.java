@@ -34,7 +34,7 @@ public class AddFruitServlet extends HttpServlet {
             request.getRequestDispatcher("/admin/add-fruit.jsp").forward(request, response);
         } else {
         int status=1;
-        Fruit fruit = new Fruit(name, description, price, unit, origin, thumbnail, categoryId,status);
+        Fruit fruit = new Fruit(name, description,Double.parseDouble(price), unit, origin, thumbnail, categoryId,status);
           dao.insertFruit(fruit);
             response.sendRedirect("/admin/list-fruit");
         }

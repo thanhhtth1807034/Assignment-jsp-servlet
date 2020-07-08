@@ -18,22 +18,22 @@
 <%
     }
 %>
-<form action="admin/add-category" method="post">
-    <div>
-        Name <input type="text" name="name">
-        <%
-            if(errors!=null && errors.containsKey("name")){
-        %>
-        <p class="error">* <%=errors.get("name").get(0)%></p>
-        <%
-            }
-        %>
-    </div>
+<%--<form action="admin/add-category" method="post">--%>
+<%--    <div>--%>
+<%--        Name <input type="text" name="name">--%>
+<%--        <%--%>
+<%--            if(errors!=null && errors.containsKey("name")){--%>
+<%--        %>--%>
+<%--        <p class="error">* <%=errors.get("name").get(0)%></p>--%>
+<%--        <%--%>
+<%--            }--%>
+<%--        %>--%>
+<%--    </div>--%>
 
-    <div>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </div>
+<%--    <div>--%>
+<%--        <input type="submit" value="Submit">--%>
+<%--        <input type="reset" value="Reset">--%>
+<%--    </div>--%>
 </form>
 
 <div class="container-fluid">
@@ -45,11 +45,19 @@
             <h6 class="m-0 font-weight-bold text-primary">Form Add Categories</h6>
         </div>
         <div class="card-body">
-            <form action="/admin/add-category" method="post">
+            <form action="/admin/add-category" method="post" class="col-md-8 " id="formAddCategory">
                 <div class="form-row">
                     <div class="form-group col-md-6">
+
                         <label>Category Name</label>
                         <input type="text" class="form-control" name="name"  placeholder="Name">
+                        <%
+                            if(errors!=null && errors.containsKey("name")){
+                        %>
+                        <p class="error">* <%=errors.get("name").get(0)%></p>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
 
