@@ -91,7 +91,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="https://colorlib.com/preview/theme/ogani/img/product/details/product-details-1.jpg" alt="">
+                             src="${requestScope.fruits.thumbnail}" alt="">
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="img/product/details/product-details-2.jpg"
@@ -107,7 +107,8 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
-                    <h3>Vetgetable’s Package</h3>
+                    <h3>${requestScope.fruits.name}</h3>
+
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -116,7 +117,7 @@
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 reviews)</span>
                     </div>
-                    <div class="product__details__price">$50.00</div>
+                    <div class="product__details__price">${requestScope.fruits.price}</div>
                     <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
                         vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
                         quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
@@ -163,7 +164,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
+                                <h6>${requestScope.fruits.description}</h6>
                                 <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                     Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
                                     suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
