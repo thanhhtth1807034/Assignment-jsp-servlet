@@ -4,19 +4,30 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>index.jsp</welcome-file>-->
+<!--    </welcome-file-list>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>ShopGridServlet</servlet-name>-->
+<!--        <url-pattern>/shop-grid</url-pattern>-->
+<!--    </servlet-mapping>-->
+<!--    <servlet>-->
+<!--        <servlet-name>ShopGridServlet</servlet-name>-->
+<!--        <servlet-class>com.assignment.controller.ShopGridServlet</servlet-class>-->
+<!--    </servlet>-->
 
     <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
     </filter>
 
+
     <filter-mapping>
         <filter-name>sitemesh</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
 
     <servlet>
         <servlet-name>LoginController</servlet-name>
