@@ -23,9 +23,9 @@
             <label>Category</label>
             <select name="categoryId" class="form form-control">
 
-                <option value="5" selected="">Imported Fruit</option>
-
-                <option value="6" selected="">Domestic Fruit</option>
+                <c:forEach var="cate" items="${requestScope.listCate}">
+                    <option value="${cate.id}" >${cate.name}</option>
+                </c:forEach>
 
             </select>
         </div>
@@ -42,7 +42,6 @@
                 <div class="custom-file">
                     <input type="text" class="custom-file-input col-md-6" name="thumbnail" >
                     <label id="upload_widget"  class="custom-file-label" for="upload_widget">Choose file</label>
-<%--                    <button type="button" class="btn btn-primary" id="upload_widget">Upload files</button>--%>
                     <img id="preview" width="180px" src=""/>
 
                 </div>
