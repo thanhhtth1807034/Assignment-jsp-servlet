@@ -27,7 +27,7 @@ public class AddCategoryServlet extends HttpServlet {
         } else {
             Category category = new Category(name);
             dao.insertCategory(category);
-            response.sendRedirect("admin/add-category");
+            response.sendRedirect("/admin/add-category");
         }
     }
 
