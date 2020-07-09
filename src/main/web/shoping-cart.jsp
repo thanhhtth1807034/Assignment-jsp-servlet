@@ -8,61 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All departments</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!-- Hero Section End -->
 
 
@@ -90,7 +36,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__table">
-                    <table>
+                    <table id="tb">
                         <thead>
                         <tr>
                             <th class="shoping__product">Products</th>
@@ -102,23 +48,21 @@
                         </thead>
                         <tbody>
                         <c:forEach var="cart" items="${requestScope.carts}">
-                            <%--                            <fmt:parseNumber var = "i" integerOnly = "true"--%>
-                            <%--                                             type = "number" value = "${cart.price}" />--%>
                             <c:set var="total" value="${cart.price * cart.quantity}"/>
-
                             <tr>
                                 <td class="shoping__cart__item">
                                     <img width="20%" src="${cart.image}" alt="">
                                     <h5>${cart.fruitName}</h5>
                                 </td>
-                                ${cart.fruitId}
                                 <td class="shoping__cart__price">
                                     $${cart.price}
                                 </td>
                                 <td class="shoping__cart__quantity">
                                     <div class="quantity">
                                         <div class="pro-qty">
-                                            <input type="text" id="quantity" value="${cart.quantity}">
+                                            <span onclick="updatecart1(${cart.fruitId})" class="dec qtybtn">-</span>
+                                            <input  type="text" disabled id="quantity_${cart.fruitId}" value="${cart.quantity}">
+                                            <span onclick="updatecart2(${cart.fruitId})" class="inc qtybtn">+</span>
                                         </div>
                                     </div>
                                 </td>
@@ -161,12 +105,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 hi">
                 <div class="shoping__checkout">
                     <h5>Cart Total</h5>
-                    <ul>
-                        <li>Subtotal <span>$${requestScope.tt}</span></li>
-                        <li>Total <span>$${requestScope.tt}</span></li>
+                    <ul id="bo">
+                        <li class="il">Subtotal <span class="load">$${requestScope.tt}</span></li>
+                        <li>Total <span class="load">$${requestScope.tt}</span></li>
                     </ul>
                     <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                 </div>
@@ -174,5 +118,3 @@
         </div>
     </div>
 </section>
-</body>
-</html>

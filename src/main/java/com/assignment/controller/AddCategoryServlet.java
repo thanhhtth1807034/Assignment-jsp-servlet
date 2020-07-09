@@ -22,12 +22,12 @@ public class AddCategoryServlet extends HttpServlet {
         CategoryForm categoryform = new CategoryForm(name);
         if (categoryform.getErrors().size() > 0) {
             request.setAttribute("errors", categoryform.getErrors());
-            request.getRequestDispatcher("/admin/add-category.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/addcategory.jsp").forward(request, response);
 
         } else {
             Category category = new Category(name);
             dao.insertCategory(category);
-            response.sendRedirect("/admin/add-category");
+            response.sendRedirect("/admin/list-category");
         }
     }
 

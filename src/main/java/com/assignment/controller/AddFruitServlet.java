@@ -31,7 +31,7 @@ public class AddFruitServlet extends HttpServlet {
         FruitForm fruitForm = new FruitForm(name, description, price, unit, origin, thumbnail);
         if (fruitForm.getErrors().size() > 0) {
             request.setAttribute("errors", fruitForm.getErrors());
-            request.getRequestDispatcher("/admin/add-fruit.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/addfruit.jsp").forward(request, response);
         } else {
         int status=1;
         Fruit fruit = new Fruit(name, description,Double.parseDouble(price), unit, origin, thumbnail, categoryId,status);
@@ -45,7 +45,7 @@ public class AddFruitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> list = dao.getAllCategory();
         request.setAttribute("listCate", list);
-        request.getRequestDispatcher("/admin/add-fruit.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/addfruit.jsp").forward(request,response);
 
     }
 

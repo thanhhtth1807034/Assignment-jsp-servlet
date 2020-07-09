@@ -54,16 +54,18 @@
             <%
                 }
             %>
-        </div><div class="form-group col-md-6">
-            <label>Category</label>
-            <select name="categoryId" class="form form-control">
-
-                <c:forEach var="cate" items="${requestScope.listCate}">
-                    <option value="${cate.id}" >${cate.name}</option>
-                </c:forEach>
-
-            </select>
         </div>
+            <div class="form-group col-md-6">
+            <label>Category</label>
+                <div>
+                    <select name="categoryId" class="form form-control">
+                        <c:forEach var="cate" items="${requestScope.listCate}">
+                            <option value="${cate.id}" >${cate.name}</option>
+                        </c:forEach>
+
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div class="form-row">

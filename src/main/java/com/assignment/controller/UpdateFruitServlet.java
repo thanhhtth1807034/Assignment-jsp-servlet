@@ -27,7 +27,7 @@ public class UpdateFruitServlet extends HttpServlet {
 
         Fruit fruit = new Fruit(id,name,description,price,unit,origin,thumbnail,categoryId);
         dao.updateFruit(fruit);
-        response.sendRedirect("admin/list-fruit");
+        response.sendRedirect("/admin/list-fruit");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

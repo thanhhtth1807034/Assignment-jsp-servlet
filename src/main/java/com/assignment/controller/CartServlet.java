@@ -28,8 +28,6 @@ public class CartServlet extends HttpServlet {
         response.sendRedirect("shoping-cart");
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         int frurtid = Integer.parseInt(request.getParameter("frurtid"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         if (quantity <= 0) {

@@ -1,5 +1,8 @@
 package com.assignment.controller;
 
+import com.assignment.dao.FruitDAO;
+import com.assignment.model.Fruit;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,11 +12,15 @@ import java.io.IOException;
 
 @WebServlet(name = "ShopDetailsServlet",urlPatterns = "/shop-details")
 public class ShopDetailsServlet extends HttpServlet {
+    FruitDAO dao =new FruitDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("shop-details.jsp").forward(request,response);
-    }
+        int id = Integer.parseInt(request.getParameter("id"));
+        Fruit fruit = dao.getFruitById(id);
+        request.setAttribute("fruitId", id);
+        request.setAttribute("fruits", fruit);
+        request.getRequestDispatcher("shop-details.jsp").forward(request,response);    }
 }
