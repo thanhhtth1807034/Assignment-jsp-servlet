@@ -10,31 +10,6 @@
         color: red;
     }
 </style>
-<h1>Register world</h1>
-<%
-    if(errors != null && errors.size()> 0){
-%>
-<span class="error">Please fix errors below and try again!</span>
-<%
-    }
-%>
-<%--<form action="admin/add-category" method="post">--%>
-<%--    <div>--%>
-<%--        Name <input type="text" name="name">--%>
-<%--        <%--%>
-<%--            if(errors!=null && errors.containsKey("name")){--%>
-<%--        %>--%>
-<%--        <p class="error">* <%=errors.get("name").get(0)%></p>--%>
-<%--        <%--%>
-<%--            }--%>
-<%--        %>--%>
-<%--    </div>--%>
-
-<%--    <div>--%>
-<%--        <input type="submit" value="Submit">--%>
-<%--        <input type="reset" value="Reset">--%>
-<%--    </div>--%>
-</form>
 
 <div class="container-fluid">
     <!-- Page Heading -->

@@ -28,7 +28,7 @@ public class UserFilter implements Filter {
         } else {
             request.setAttribute("code", HttpServletResponse.SC_FORBIDDEN);
             request.setAttribute("message", "Login failed. Please login to continue!!!");
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/account/login.jsp").forward(request, response);
         }
     }
 

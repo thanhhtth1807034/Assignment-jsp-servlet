@@ -104,19 +104,19 @@
                 thumbnail: "required"
             },
             messages:{
-                name: "Please enter name product",
-                description: "Please enter description product",
+                name: "Please enter name fruit",
+                description: "Please enter description fruit",
                 price: {
-                    required: "Please select a price for the product",
+                    required: "Please select a price for the fruit",
                     number: "The price must be a number",
                     min: "The price must be greater than 0"
                 },
 
                 unit: {
-                    required: "Please enter unit product",
+                    required: "Please enter unit fruit",
                 },
-                origin: "Please enter origin product",
-                thumbnail: "Please select the product image file"
+                origin: "Please enter origin fruit",
+                thumbnail: "Please select  image file"
             }
         });
         $("#formAddCate").validate({
@@ -160,7 +160,7 @@
     $('#action_contract').click(function () {
         var selectedIDs = new Array();
         var action = $('#select-action').val();
-        if (action == 6) {
+        if (action === 6) {
             alert('Please select the action you want to perform!');
             return;
         }
@@ -170,10 +170,10 @@
             }
         });
         if (selectedIDs.length <= 0) {
-            alert('You have not selected insurance package !');
+            alert('You have not selected fruit !');
             return;
         }
-        if (confirm("Do you want to delete?")) {
+        if (confirm("Do you want to action ?")) {
             changeStatusPTTime(selectedIDs, action);
         }
     });
@@ -192,10 +192,13 @@
                 }
             },
             error: function () {
-                alert('error');
+                window.location.reload();
             }
         });
     }
+    $("#status").change(function () {
+        $("#statusform").submit();
+    });
 </script>
 <script src="<c:url value='/assert/admin/js/demo/jquery.dataTable.min.js'/>"></script>
 
