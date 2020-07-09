@@ -1,3 +1,4 @@
+<%@ page import="com.assignment.util.ApplicationConstant" %>
 <!-- Header Section Begin -->
 <%@include file="../taglib.jsp" %>
 <header class="header">
@@ -29,7 +30,18 @@
                             </ul>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="${pageContext.request.contextPath}/account/login"><i class="fa fa-user"></i> Login</a>
+                            <c:if test="${sessionScope.currentLoggedIn != null}">
+                                <a href="${pageContext.request.contextPath}/user/profile"><i class="fa fa-user"></i>
+                                        ${sessionScope.currentLoggedIn.username}
+                                </a>
+
+                            </c:if>
+                            <c:if test="${sessionScope.currentLoggedIn == null}">
+                                <a href="${pageContext.request.contextPath}/account/login"><i class="fa fa-user"></i>
+                                    Login
+                                </a>
+                            </c:if>
+
                         </div>
                     </div>
                 </div>
@@ -74,7 +86,7 @@
                             <c:if test="${requestScope.carts==null}">
                                 <span>0</span>
                             </c:if>
-                            </a></li>
+                        </a></li>
                     </ul>
                     <div class="header__cart__price">item:
                         <c:if test="${requestScope.tt!=null}">

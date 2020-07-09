@@ -1,7 +1,19 @@
 <%@ page import="com.assignment.model.User" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
+
+
 <%
-    User.Role[] roles = (User.Role[]) request.getAttribute("roles");
+    HashMap<String, ArrayList<String>> errors = (HashMap<String, ArrayList<String>>) request.getAttribute("errors");
 %>
+<%--<%--%>
+<%--    User.Role[] roles = (User.Role[]) request.getAttribute("roles");--%>
+<%--%>--%>
+<style>
+    .error{
+        color: red;
+    }
+</style>
 <div class="main-container">
     <div class="main-content">
         <div class="row">
@@ -10,7 +22,7 @@
                     <div class="center">
                         <h1>
 
-                            <span class="red">Register</span>
+                            <span class="green">Register</span>
                             <%--                            <span class="white" id="id-text2">Application</span>--%>
                         </h1>
 
@@ -31,13 +43,27 @@
                                     <div class="space-6"></div>
                                     <p> Enter your details to begin: </p>
 
-                                    <form action="/account/register" method="post">
+                                    <%
+                                        if (errors != null && errors.size() > 0){
+                                    %>
+                                        <span class="error">Please fix errors and try again !</span>
+                                    <%
+                                        }
+                                    %>
+                                    <form action="${pageContext.request.contextPath}/account/register" method="post" id="registerForm">
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="email" class="form-control" placeholder="Email"
                                                                    name="email"/>
 															<i class="ace-icon fa fa-envelope"></i>
+                                                            <%
+                                                                if (errors != null && errors.containsKey("email")){
+                                                            %>
+                                                            <p class="error">* <%=errors.get("email").get(0)%></p>
+                                                            <%
+                                                                }
+                                                            %>
 														</span>
                                             </label>
 
@@ -46,6 +72,13 @@
 															<input type="text" class="form-control"
                                                                    placeholder="Username" name="username"/>
 															<i class="ace-icon fa fa-user"></i>
+                                                            <%
+                                                                if (errors != null && errors.containsKey("username")){
+                                                            %>
+                                                                <p class="error">* <%=errors.get("username").get(0)%></p>
+                                                            <%
+                                                                }
+                                                            %>
 														</span>
                                             </label>
 
@@ -54,6 +87,13 @@
 															<input type="password" class="form-control"
                                                                    placeholder="Password" name="password"/>
 															<i class="ace-icon fa fa-lock"></i>
+                                                            <%
+                                                                if (errors != null && errors.containsKey("password")){
+                                                            %>
+                                                            <p class="error">* <%=errors.get("password").get(0)%></p>
+                                                            <%
+                                                                }
+                                                            %>
 														</span>
                                             </label>
 
@@ -69,7 +109,14 @@
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control"
                                                                    placeholder="Full name" name="fullName"/>
-															<i class="ace-icon fa fa-retweet"></i>
+															<i class="ace-icon fa fa-user"></i>
+                                                            <%
+                                                                if (errors != null && errors.containsKey("fullName")){
+                                                            %>
+                                                            <p class="error">* <%=errors.get("fullName").get(0)%></p>
+                                                            <%
+                                                                }
+                                                            %>
 														</span>
                                             </label>
 
@@ -77,7 +124,14 @@
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control"
                                                                    placeholder="Address" name="address"/>
-															<i class="ace-icon fa fa-retweet"></i>
+															<i class="ace-icon fa fa-address-card"></i>
+                                                            <%
+                                                                if (errors != null && errors.containsKey("address")){
+                                                            %>
+                                                            <p class="error">* <%=errors.get("address").get(0)%></p>
+                                                            <%
+                                                                }
+                                                            %>
 														</span>
                                             </label>
 
@@ -85,23 +139,30 @@
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control" placeholder="Phone"
                                                                    name="phone"/>
-															<i class="ace-icon fa fa-retweet"></i>
+															<i class="ace-icon fa fa-phone-square"></i>
+                                                            <%
+                                                                if (errors != null && errors.containsKey("phone")){
+                                                            %>
+                                                            <p class="error">* <%=errors.get("phone").get(0)%></p>
+                                                            <%
+                                                                }
+                                                            %>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-                                                            Role <select name="role">
-                                                                    <%
-                                                                        for (User.Role r : roles) {
-                                                                    %>
-                                                                        <option value="<%=r.getValue()%>"><%=r.name()%></option>
-                                                                    <%
-                                                                        }
-                                                                    %>
-                                                                 </select>
-															<i class="ace-icon fa fa-retweet"></i>
-														</span>
+<%--														<span class="block input-icon input-icon-right">--%>
+<%--                                                            Role <select name="role">--%>
+<%--                                                                    <%--%>
+<%--                                                                        for (User.Role r : roles) {--%>
+<%--                                                                    %>--%>
+<%--                                                                        <option value="<%=r.getValue()%>"><%=r.name()%></option>--%>
+<%--                                                                    <%--%>
+<%--                                                                        }--%>
+<%--                                                                    %>--%>
+<%--                                                                 </select>--%>
+<%--															<i class="ace-icon fa fa-retweet"></i>--%>
+<%--														</span>--%>
                                             </label>
 
                                             <div class="space-24"></div>
@@ -123,7 +184,7 @@
                                 </div>
 
                                 <div class="toolbar center">
-                                    <a href="#" data-target="#login-box" class="back-to-login-link">
+                                    <a href="/account/login" data-target="#login-box" class="back-to-login-link">
                                         <i class="ace-icon fa fa-arrow-left"></i>
                                         Back to login
                                     </a>
@@ -151,5 +212,52 @@
         </div><!-- /.row -->
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
+<script>
+    $( "#registerForm" ).validate({
+        rules: {
+            username: {
+                required: true,
+                minLength: 2
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                // pwcheck: true,
+                minlength: 6
+            },
+            repeatPassword: {
+                required : true,
+                equalTo: "#password"
+            },
+            fullName: {
+                required: true,
+                minLength: 2
+            },
+            address: {
+                required: true,
+                minLength: 2
+            },
+            phone: {
+                required: true,
+                matches: "[0-9]+",
+                minlength:10,
+                maxlength:10
+            }
+        }
 
+    });
+    // $(function () {
+    //     $.validator.addMethod("pwcheck",
+    //         function(value, element) {
+    //             return /^[A-Za-z0-9\d=!\-@._*]+$/.test(value);
+    //         });
+    // })
+
+</script>

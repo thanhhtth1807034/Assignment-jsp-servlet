@@ -1,4 +1,8 @@
-
+<style>
+    .error{
+        color: red;
+    }
+</style>
 <div class="main-container">
     <div class="main-content">
         <div class="row">
@@ -26,13 +30,13 @@
 
                                     <div class="space-6"></div>
 
-                                    <form method="post" action="/account/login">
+                                    <form id="loginForm" method="post" action="/account/login">
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control"
                                                                    placeholder="Username" name="username"/>
-															<i class="ace-icon fa fa-user"></i>
+															<i class="ace-icon fa fa-user "></i>
 														</span>
                                             </label>
 
@@ -103,7 +107,33 @@
         </div><!-- /.row -->
     </div><!-- /.main-content -->
 </div>
-<!-- /.main-container -->
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+<script>
+    $( "#loginForm" ).validate({
+        rules: {
+            username: {
+                required: true,
+                minLength: 2
+            },
+            password: {
+                required: true,
+                // pwcheck: true,
+                minlength: 6
+            }
+        }
+    });
+    // $(function () {
+    //     $.validator.addMethod("pwcheck",
+    //         function(value, element) {
+    //             return /^[A-Za-z0-9\d=!\-@._*]+$/.test(value);
+    //         });
+    // })
+
+</script>
+
 
 
 

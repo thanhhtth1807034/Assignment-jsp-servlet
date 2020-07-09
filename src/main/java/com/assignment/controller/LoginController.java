@@ -2,6 +2,7 @@ package com.assignment.controller;
 
 import com.assignment.dao.UserDAO;
 import com.assignment.model.User;
+import com.assignment.model.UserHashmap;
 import com.assignment.util.ApplicationConstant;
 import com.assignment.util.StringUtil;
 
@@ -26,6 +27,11 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String password = req.getParameter("password");
         String username = req.getParameter("username");
+
+//        UserHashmap userHashmap = new UserHashmap(username, password);
+//        if (userHashmap.getErrors().size() > 0){
+//            req.setAttribute("errors", userHashmap.getErrors());
+//        }
         User user = userDAO.findByUsernameAndStatus(username, User.Status.ACTIVE);
         if (user == null){
             resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
