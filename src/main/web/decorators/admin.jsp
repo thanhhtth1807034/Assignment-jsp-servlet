@@ -24,7 +24,6 @@
     <link href="<c:url value='/assert/admin/css/sb-admin-2.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/css/jquery.dataTables.min.css'/>" rel="stylesheet">
     <link href="<c:url value='/assert/admin/vendor/datatables/dataTables.bootstrap4.css'/>" rel="stylesheet">
-
     <style>
         .error {
             color: #f30000 !important;
@@ -59,8 +58,6 @@
     <%--footer--%>
 
     <%--footer--%>
-
-
 </div>
 <%@include file="/common/admin/footer.jsp" %>
 <!-- End of Page Wrapper -->
@@ -98,11 +95,11 @@
                     number: true,
                     min: 0
                 },
+
                 unit: {
                     required: true,
-                    number: true,
-                    min: 1
                 },
+
                 origin: "required",
                 thumbnail: "required"
             },
@@ -114,10 +111,9 @@
                     number: "The price must be a number",
                     min: "The price must be greater than 0"
                 },
+
                 unit: {
                     required: "Please enter unit product",
-                    number:"The unit must be a number",
-                    min: "The unit must be greater than 0"
                 },
                 origin: "Please enter origin product",
                 thumbnail: "Please select the product image file"
@@ -154,8 +150,53 @@
             myWidget.open();
         },
         false);
-</script>
 
+</script>
+<script>
+    $('#checkAll').click(function () {
+        $(".check").prop('checked',
+            $(this).prop('checked'));
+    })
+    $('#action_contract').click(function () {
+        var selectedIDs = new Array();
+        var action = $('#select-action').val();
+        if (action == 6) {
+            alert('Please select the action you want to perform!');
+            return;
+        }
+        $('input:checkbox.check').each(function () {
+            if ($(this).prop('checked')) {
+                selectedIDs.push($(this).val());
+            }
+        });
+        if (selectedIDs.length <= 0) {
+            alert('You have not selected insurance package !');
+            return;
+        }
+        if (confirm("Do you want to delete?")) {
+            changeStatusPTTime(selectedIDs, action);
+        }
+    });
+    function changeStatusPTTime(selectedIDs, action) {
+        $.ajax({
+            url: "/admin/delete-fruit",
+            type: "GET",
+            dataType: "json",
+            data: {
+                selectedIDs,
+                action
+            },
+            success: function (res) {
+                if (!res == false) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                alert('error');
+            }
+        });
+    }
+</script>
 <script src="<c:url value='/assert/admin/js/demo/jquery.dataTable.min.js'/>"></script>
 
 </body>

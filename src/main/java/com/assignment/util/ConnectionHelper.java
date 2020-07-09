@@ -8,7 +8,8 @@ public class ConnectionHelper {
     private static Connection connection;
 
     public static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3307/fruit_store";
+        String url = "jdbc:mysql://localhost:3306/fruit_store";
+
         String user = "root";
         String password = "root";
 

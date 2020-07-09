@@ -1,6 +1,7 @@
 package com.assignment.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "fruit")
@@ -28,12 +29,29 @@ public class Fruit {
 
     @Column(name = "categoryId")
     private Integer categoryId;
-
+    @Column(name = "createdAt" ,nullable = true)
+    private Date createdAt;
+    @Column(name = "updatedAt",nullable = true)
+    private Date updatedAt;
+    @Column(name = "status",nullable = true)
+    private Integer status;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryId", updatable = false, insertable = false)
     private Category category;
 
-    public Fruit(String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
+    public Fruit(String name, String description, double price, String unit, String origin, String thumbnail, Integer categoryId, Integer status) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.unit = unit;
+        this.origin = origin;
+        this.thumbnail = thumbnail;
+        this.categoryId = categoryId;
+        this.status = status;
+    }
+
+    public Fruit(Integer id, String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -43,15 +61,12 @@ public class Fruit {
         this.categoryId = categoryId;
     }
 
-    public Fruit(Integer id,String name, String description, double price, String unit, String origin, String thumbnail, int categoryId) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.unit = unit;
-        this.origin = origin;
-        this.thumbnail = thumbnail;
-        this.categoryId = categoryId;
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Fruit(Integer id) {
@@ -67,6 +82,22 @@ public class Fruit {
     }
 
     public Fruit() {
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -133,4 +164,3 @@ public class Fruit {
         this.thumbnail = thumbnail;
     }
 }
-
