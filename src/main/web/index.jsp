@@ -13,9 +13,11 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>All Categories</span>
                     </div>
                     <ul>
+<%--                        <li><a href="#">Imported Fruit</a></li>--%>
+<%--                        <li><a href="#">Domestic Fruit</a></li>--%>
                         <li><a href="#">Fresh Meat</a></li>
                         <li><a href="#">Vegetables</a></li>
                         <li><a href="#">Fruit & Nut Gifts</a></li>
@@ -129,23 +131,17 @@
             </div>
         </div>
         <div class="row featured__filter">
-
             <c:forEach var="fruits" items="${requestScope.listFruits}">
                 <a href="/shop-detail?id=${fruits.id}" >
-
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="featured__item">
-
                         <div class="featured__item__pic set-bg" data-setbg="${fruits.thumbnail}">
-
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart" style="padding-top: 12px"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet" style="padding-top: 12px"></i></a></li>
                                 <li><a href="/Add-Cart?frurtid=${fruits.id}&&quantity=1"><i class="fa fa-shopping-cart" style="padding-top: 12px"></i></a></li>
                             </ul>
                         </div>
-
-
                         <div class="featured__item__text">
                             <h6><a href="#">${fruits.name}</a></h6>
                             <h5>${fruits.price} $</h5>
@@ -154,7 +150,6 @@
                 </div>
                 </a>
             </c:forEach>
-
         </div>
     </div>
 </section>
