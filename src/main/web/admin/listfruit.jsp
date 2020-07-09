@@ -23,6 +23,7 @@
                 <table id="example" class="order-table display" style="width:100%">
                     <thead>
                     <tr>
+                        <th rowspan="1" colspan="1"><input type="checkbox" id="checkAll" />Select All</th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Desc</th>
@@ -37,6 +38,9 @@
                     <tbody>
                     <c:forEach var="fruit" items="${requestScope.fruits}">
                         <tr>
+                            <td>
+                                <input type="checkbox" class="check" value="${fruit.id}" />
+                            </td>
                             <td>${fruit.id}</td>
                             <td>${fruit.name}</td>
                             <td>${fruit.description}</td>
@@ -47,30 +51,31 @@
                             <td><b>${fruit.category.name}</b></td>
                             <td>
 
-                                <a href="${pageContext.request.contextPath}/admin-update-fruit?id=<c:out value='${fruit.id}'/>"
+                                <a href="${pageContext.request.contextPath}/admin/update-fruit?id=<c:out value='${fruit.id}'/>"
                                    style="text-decoration: none">Edit</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="${pageContext.request.contextPath}/admin-delete-fruit?id=<c:out value='${fruit.id}'/>"
+                                <a href="${pageContext.request.contextPath}/admin/delete-fruit?id=<c:out value='${fruit.id}'/>"
                                    style="text-decoration: none">Delete</a>
 
                             </td>
                         </tr>
                     </c:forEach>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Desc</th>
-                        <th>Price</th>
-                        <th>Unit</th>
-                        <th>Origin</th>
-                        <th>Thumbnail</th>
-                        <th>Category</th>
-                        <th>Action</th>
-                    </tr>
-                    </tfoot>
                 </table>
+            </div>
+            <div class="row mt-3">
+                <div class="col-3 mt-2">
+                    <div class="form-group mr-3">
+                        <select class="form-control mr-2" id="select-action">
+                            <option value="6">--Choose Action--</option>
+                            <option value="1">Active Return</option>
+                            <option value="-1">Deleted</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <button type="button" class="btn btn-success" style="margin-top: 8px;" id="action_contract">Confirm</button>
+                </div>
             </div>
         </div>
     </div>
