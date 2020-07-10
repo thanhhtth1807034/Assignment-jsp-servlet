@@ -31,10 +31,14 @@
                         </div>
                         <div class="header__top__right__auth">
                             <c:if test="${sessionScope.currentLoggedIn != null}">
+                                <div class="row">
                                 <a href="${pageContext.request.contextPath}/user/profile"><i class="fa fa-user"></i>
                                         ${sessionScope.currentLoggedIn.username}
                                 </a>
-
+                                <a class="ml-5" href="${pageContext.request.contextPath}/logout"><i class="fa fa-outdent"></i>
+                                    Logout
+                                </a>
+                                </div>
                             </c:if>
                             <c:if test="${sessionScope.currentLoggedIn == null}">
                                 <a href="${pageContext.request.contextPath}/account/login"><i class="fa fa-user"></i>
@@ -71,21 +75,21 @@
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                         <li><a href="/shoping-cart"><i class="fa fa-shopping-bag"></i>
                             <c:if test="${requestScope.carts!=null}">
-                                <span>
+                                <span >
                                         ${requestScope.carts.size()}
                                 </span>
                             </c:if>
                             <c:if test="${requestScope.carts==null}">
-                                <span>0</span>
+                                <span >0</span>
                             </c:if>
                         </a></li>
                     </ul>
                     <div class="header__cart__price">item:
                         <c:if test="${requestScope.tt!=null}">
-                            <span>$${requestScope.tt}</span>
+                            <span class="prices">$${requestScope.tt}</span>
                         </c:if>
                         <c:if test="${requestScope.tt==null}">
-                            <span>$0</span>
+                            <span class="prices">$0</span>
                         </c:if>
                     </div>
                 </div>

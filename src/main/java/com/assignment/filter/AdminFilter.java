@@ -26,9 +26,11 @@ public class AdminFilter implements Filter {
         if (authenticated){
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            request.setAttribute("code", HttpServletResponse.SC_FORBIDDEN);
-            request.setAttribute("message", "Login failed. Please login to continue!!!");
-            request.getRequestDispatcher("/account/login.jsp").forward(request, response);
+//            request.setAttribute("code", HttpServletResponse.SC_FORBIDDEN);
+//            request.setAttribute("message", "Login failed. Please login to continue!!!");
+//            request.getRequestDispatcher("/account/login.jsp").forward(request, response);
+            response.sendRedirect("/account/login");
+
         }
     }
 
