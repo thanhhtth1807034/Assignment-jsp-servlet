@@ -30,6 +30,14 @@ public class FruitDAO {
         entityManager.close();
         return list;
     }
+    public List<Fruit> getAllFruitstatus(int Status){
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        List<Fruit> list = entityManager.createQuery("select c from Fruit c where status="+Status, Fruit.class).getResultList();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return list;
+    }
 
     public Fruit getFruitById(int id){
         entityManager = entityManagerFactory.createEntityManager();

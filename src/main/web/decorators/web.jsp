@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp" %>
 <html>
 <head>
     <title><dec:title default="Trang chu"/></title>
@@ -26,15 +26,15 @@
 </head>
 <body>
 <%--header--%>
-<%@include file="/common/web/header.jsp"%>
+<%@include file="/common/web/header.jsp" %>
 <%--header--%>
 
 <div>
-    <dec:body />
+    <dec:body/>
 </div>
 
 <%--footer--%>
-<%@include file="/common/web/footer.jsp"%>
+<%@include file="/common/web/footer.jsp" %>
 <%--footer--%>
 
 <script type="text/javascript" src="<c:url value="/assert/web/js/jquery-3.3.1.min.js"/>"></script>
@@ -56,8 +56,8 @@
             type: "POST",
             dataType: "json",
             data: {
-                'frurtid':fruitid,
-                'quantity':quantity
+                'frurtid': fruitid,
+                'quantity': quantity
             },
             success: function (res) {
                 if (!res == false) {
@@ -96,6 +96,65 @@
             });
         });
     });
+
+    function toDetail(id) {
+        location.href = '/shop-details?id=' + id;
+    }
+
+    function addcart(id) {
+        var quantity = $("#quantitydetail").val()
+        location.href = '/Add-Cart?frurtid='+id+"&&quantity="+quantity;
+
+    }
+
+    function updatecart1(id) {
+        var quantity = $("#quantity_"+id).val()
+        var curentquantity=parseInt(quantity)-1
+        if(curentquantity>0) {
+            $.ajax({
+                url: "/update-cart",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    'frurtid': id,
+                    'quantity': curentquantity
+                },
+                success: function (res) {
+                    if (!res == false) {
+                        window.location.reload();
+                    }
+                },
+                error: function () {
+                    $("#tb").load("/shoping-cart #tb");
+                    $(".hi").load("/shoping-cart .shoping__checkout");
+
+                }
+            });s
+        }
+    }
+    function updatecart2(id) {
+        var quantity = $("#quantity_"+id).val()
+        var curentquantity=parseInt(quantity)+1
+        $.ajax({
+            url: "/update-cart",
+            type: "POST",
+            dataType: "json",
+            data: {
+                'frurtid': id,
+                'quantity': curentquantity
+            },
+            success: function (res) {
+                if (!res == false) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                $("#tb").load("/shoping-cart #tb");
+                $(".hi").load("/shoping-cart .shoping__checkout");
+
+            }
+        });
+    }
 </script>
 </body>
 </html>

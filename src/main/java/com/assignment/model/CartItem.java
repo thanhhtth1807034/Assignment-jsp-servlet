@@ -22,7 +22,7 @@ public class CartItem {
         this.image=fruit.getThumbnail();
         this.fruitId = fruit.getId();
         this.fruitName = fruit.getName();
-        this.quantity = 1;
+        this.quantity = quantity;
         this.price = fruit.getPrice();
     }
     public CartItem() {

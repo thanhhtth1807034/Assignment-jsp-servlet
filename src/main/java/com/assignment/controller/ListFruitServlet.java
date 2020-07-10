@@ -17,8 +17,16 @@ public class ListFruitServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Fruit> listFruit = dao.getAllFruit();
+        String status=request.getParameter("status");
+        List<Fruit> listFruit;
+        if (status!=null&& !status.equals("all")){
+            listFruit = dao.getAllFruitstatus(Integer.parseInt(status));
+            request.setAttribute("status", status);
+        }else {
+            listFruit = dao.getAllFruit();
+        }
         request.setAttribute("fruits", listFruit);
         request.getRequestDispatcher("/admin/listfruit.jsp").forward(request, response);
+
     }
 }

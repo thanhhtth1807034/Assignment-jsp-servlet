@@ -11,8 +11,6 @@ public class FruitForm {
     private String unit;
     private String origin;
     private String thumbnail;
-
-
     public FruitForm(String name, String description, String price, String unit, String origin, String thumbnail){
         this.name = name;
         this.description = description;
@@ -28,7 +26,7 @@ public class FruitForm {
             if (errors.containsKey("name")) {
                 nameErrors = errors.get("name");
             }
-            nameErrors.add("Please enter name product");
+            nameErrors.add("Please enter name fruit");
             errors.put("name", nameErrors);
         }
         if (description == null || description.isEmpty()) {
@@ -36,7 +34,7 @@ public class FruitForm {
             if (errors.containsKey("description")) {
                 descriptionErrors = errors.get("description");
             }
-            descriptionErrors.add("Please enter description product");
+            descriptionErrors.add("Please enter description fruit");
             errors.put("description", descriptionErrors);
         }
         if (price == null || price.isEmpty()) {
@@ -44,14 +42,14 @@ public class FruitForm {
             if (errors.containsKey("price")) {
                 priceErrors = errors.get("price");
             }
-            priceErrors.add("Please select a price for the product");
+            priceErrors.add("Please select a price for the fruit");
             errors.put("price", priceErrors);
         }else if(price.length() < 0){
             ArrayList<String> priceErrors = new ArrayList<>();
             if (errors.containsKey("price")) {
                 priceErrors = errors.get("price");
             }
-            priceErrors.add("Please select a price for the product");
+            priceErrors.add("Please select a price for the fruit");
             errors.put("price", priceErrors);
         }
         try {
@@ -69,7 +67,7 @@ public class FruitForm {
             if (errors.containsKey("unit")) {
                 unitErrors = errors.get("unit");
             }
-            unitErrors.add("Please enter unit product");
+            unitErrors.add("Please enter unit fruit");
             errors.put("unit", unitErrors);
         }
         if (origin == null || origin.isEmpty()) {
@@ -77,7 +75,7 @@ public class FruitForm {
             if (errors.containsKey("origin")) {
                 originErrors = errors.get("origin");
             }
-            originErrors.add("Please enter origin product");
+            originErrors.add("Please enter origin fruit");
             errors.put("origin", originErrors);
         }
         if (thumbnail == null || thumbnail.isEmpty()) {
@@ -85,7 +83,7 @@ public class FruitForm {
             if (errors.containsKey("thumbnail")) {
                 thumbnailErrors = errors.get("thumbnail");
             }
-            thumbnailErrors.add("Please select the product image file");
+            thumbnailErrors.add("Please select  image file");
             errors.put("thumbnail", thumbnailErrors);
         }
 
