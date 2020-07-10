@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="<c:url value='/assert/web/css/owl.carousel.min.css' />" type="text/css" media="all">
     <link rel="stylesheet" href="<c:url value='/assert/web/css/slicknav.min.css' />" type="text/css" media="all">
     <link rel="stylesheet" href="<c:url value='/assert/web/css/style.css' />" type="text/css" media="all">
+    <link rel="stylesheet" href="<c:url value='/assert/web/css/menobuc.scss' />" type="text/css" media="all">
 
 </head>
 <body>
@@ -44,6 +45,7 @@
 <script type="text/javascript" src="<c:url value="/assert/web/js/mixitup.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/assert/web/js/owl.carousel.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/assert/web/js/main.js"/>"></script>
+<script src="<c:url value='/assert/admin/js/pagination-shop-grid.js'/>"></script>
 <script>
 
     $("#update").click(function () {
@@ -67,6 +69,33 @@
             }
         });
     })
+
+    $(document).ready(function(){
+        // $('#Demo input').on('change', function() {
+        //     var balue = $('input[name="filter"]:checked', '#Demo').val();
+        //     var categoryName = $('#hidden_fruit').val();
+        //
+        // });
+        var $radios = $('input[name="filter"]');
+        $radios.change(function() {
+            var $checked = $radios.filter(function() {
+                return $(this).prop('checked');
+            });
+        });
+
+        $radios.change(function() {
+            var $checked = $radios.filter(':checked');
+            console.log($checked.val());
+        });
+
+        $('input[name="filter"]').each( function( i, button ) {
+            var $radios = $(button);
+            $radios.on( 'click', 'button', function() {
+                $radios.find('.is-checked').removeClass('is-checked');
+                $(this).addClass('is-checked');
+            });
+        });
+    });
 
     function toDetail(id) {
         location.href = '/shop-details?id=' + id;
