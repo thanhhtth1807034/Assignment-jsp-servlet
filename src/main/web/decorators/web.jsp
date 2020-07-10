@@ -128,6 +128,8 @@
                     $("#tb").load("/shoping-cart #tb");
                     $(".hi").load("/shoping-cart .shoping__checkout");
 
+                    $(".prices").load("/shoping-cart .prices");
+
                 }
             });s
         }
@@ -151,6 +153,7 @@
             error: function () {
                 $("#tb").load("/shoping-cart #tb");
                 $(".hi").load("/shoping-cart .shoping__checkout");
+                $(".prices").load("/shoping-cart .prices");
 
             }
         });

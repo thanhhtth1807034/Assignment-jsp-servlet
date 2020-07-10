@@ -28,7 +28,8 @@
                         <form class="col-8" action="/admin/list-fruit" id="statusform">
                             <select id="status" name="status" class="select-table-filter  form-control"
                                     aria-controls="example" data-table="order-table">
-                                <option value="all">Status</option>
+                                <option selected>---Seclect---</option>
+                                <option value="all">All</option>
                                 <option value="1"  >Active</option>
                                 <option value="-1" >Deleted</option>
                             </select>
@@ -43,7 +44,6 @@
                     <thead>
                     <tr>
                         <th rowspan="1" colspan="1"><input type="checkbox" id="checkAll"/>Select All</th>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Desc</th>
                         <th>Price</th>
@@ -61,7 +61,6 @@
                             <td>
                                 <input type="checkbox" class="check" value="${fruit.id}"/>
                             </td>
-                            <td>${fruit.id}</td>
                             <td>${fruit.name}</td>
                             <td>${fruit.description}</td>
                             <td>$${fruit.price}</td>

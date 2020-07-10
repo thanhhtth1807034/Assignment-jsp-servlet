@@ -135,7 +135,7 @@
 <%--                                <h5>${fruits.price} $</h5>--%>
                     <div class="col-lg-3 col-md-4 col-sm-6"  style="cursor: pointer" onclick="toDetail(${fruits.id})">
                         <div class="featured__item">
-                            <div class="featured__item__pic set-bg" data-setbg="${fruits.thumbnail}">
+                            <div class="featured__item__pic set-bg" style="background-size: contain" data-setbg="${fruits.thumbnail}">
                                 <ul class="featured__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart" style="padding-top: 12px"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet" style="padding-top: 12px"></i></a></li>
